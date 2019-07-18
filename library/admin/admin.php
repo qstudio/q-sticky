@@ -119,7 +119,7 @@ class admin extends \q_sticky {
             ! $post_types = core::get_defined_post_types() 
         ) {
 
-            helper::log( 'No post types defined as sticky' );
+            // helper::log( 'No post types defined as sticky' );
 
             return false;
 
