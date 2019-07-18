@@ -36,7 +36,7 @@ class core extends \q_sticky {
 
             if ( ! \post_type_exists( $post_type )) {
 
-                helper::log( 'Removing post_type: '.$post_type );
+                // helper::log( 'Removing post_type: '.$post_type );
 
                 unset( $post_types[$post_type] );
 
