@@ -20,20 +20,28 @@ class core extends \q_sticky {
     public static function get_defined_post_types()
     {
 
-        // if ( ! defined ( "Q_STICKY_POST_TYPE" ) ) {
-            
-        //     #helper::log( 'No sticky post types defined..' );
-
-        //     return true;
-
-        // }
-
-        $post_types = apply_filters( "q/sticky/post_types", self::$post_types ); // unserialize ( Q_STICKY_POST_TYPE );
+        // get defined post_types via filter ##
+        $post_types = \apply_filters( "q/sticky/post_types", self::$post_types ); // unserialize ( Q_STICKY_POST_TYPE );
         
         if ( ! is_array ( $post_types ) ) { 
             
             (array) $post_types; 
         
+        }
+
+        // helper::log( $post_types );
+
+        // check post_types defined are allow ##
+        foreach ( $post_types as $post_type ) {
+
+            if ( ! \post_type_exists( $post_type )) {
+
+                helper::log( 'Removing post_type: '.$post_type );
+
+                unset( $post_types[$post_type] );
+
+            }
+
         }
 
         // log ##

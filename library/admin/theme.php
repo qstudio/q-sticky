@@ -55,10 +55,6 @@ class theme extends \q_sticky {
         \wp_localize_script( 'q-sticky-js', 'q_sticky_js', array(
                 'ajax_nonce'    => wp_create_nonce( 'q_resource_nonce' )
             ,   'ajax_url'      => \admin_url( 'admin-ajax.php', \is_ssl() ? 'https' : 'http' ) /*, 'https' */ ## add 'https' to use secure URL ##
-            // ,   'saved'         => __( "Saved!", self::$text_domain )
-            // ,   'student'       => __( "Student saved", self::$text_domain )
-            // ,   'students'      => __( "Students saved", self::$text_domain )
-            // ,   'error'         => __( "Error", self::$text_domain )
             ,   'debug'         => self::$debug
         ));
 
