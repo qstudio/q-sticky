@@ -115,13 +115,17 @@ class admin extends \q_sticky {
 
         }
 
-        if ( ! $post_types = core::get_defined_post_types() ) {
+        if ( 
+            ! $post_types = core::get_defined_post_types() 
+        ) {
 
-            #helper::log( 'No post types defined as sticky' );
+            helper::log( 'No post types defined as sticky' );
 
             return false;
 
         }
+
+        // helper::log( $post_types );
 
         // get current post type ##
         $get_current_post_type = self::get_current_post_type() ? self::get_current_post_type() : false ;

@@ -45,7 +45,7 @@ class core extends \q_sticky {
         }
 
         // log ##
-        #helper::log( $post_types );
+        // helper::log( $post_types );
 
         // kick it back ##
         return $post_types;
