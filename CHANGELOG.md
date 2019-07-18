@@ -1,3 +1,7 @@
+### 3.0.2 ###
+
+* Namespace normalized to q\sticky
+
 ### 3.0.1 ###
 
 * Added addition post_type_exists check

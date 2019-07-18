@@ -1,11 +1,11 @@
 <?php
 
-namespace q\q_sticky\core;
-use q\q_sticky\core\core as core;
-use q\q_sticky\core\helper as helper;
+namespace q\sticky\core;
+use q\sticky\core\core as core;
+use q\sticky\core\helper as helper;
 
 // load it up ##
-#\q\q_sticky\core\core::run();
+#\q\sticky\core\core::run();
 
 class core extends \q_sticky {
 

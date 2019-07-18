@@ -1,7 +1,7 @@
 <?php
 
 // namespace ##
-namespace q\q_sticky\core;
+namespace q\sticky\core;
 
 class helper extends \q_sticky {
 

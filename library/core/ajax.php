@@ -1,12 +1,12 @@
 <?php
 
-namespace q\q_sticky\admin;
+namespace q\sticky\admin;
 
-use q\q_sticky\core\helper as helper;
-use q\q_sticky\core\core as core;
+use q\sticky\core\helper as helper;
+use q\sticky\core\core as core;
 
 // load it up ##
-\q\q_sticky\admin\ajax::run();
+\q\sticky\admin\ajax::run();
 
 class ajax extends \q_sticky {
 
