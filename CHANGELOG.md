@@ -1,3 +1,9 @@
+### 3.0.5 ###
+
+* Added Q debugging logic
+* Changed methods to static
+* Removed deprecated methods
+
 ### 3.0.2 ###
 
 * Namespace normalized to q\sticky

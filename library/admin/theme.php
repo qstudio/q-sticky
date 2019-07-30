@@ -33,7 +33,7 @@ class theme extends \q_sticky {
     */
     public static function admin_print_styles() {
 
-        \wp_register_style( 'q-sticky-css', helper::get( "theme/css/q-sticky.css", 'return' ), array(), self::$version, 'all' );
+        \wp_register_style( 'q-sticky-css', helper::get( "theme/css/q-sticky.css", 'return' ), array(), self::version, 'all' );
         \wp_enqueue_style( 'q-sticky-css' );
 
     }
@@ -49,7 +49,7 @@ class theme extends \q_sticky {
     public static function admin_init() {
 
         // add JS ## -- after all dependencies ##
-        \wp_enqueue_script( 'q-sticky-js', helper::get( "theme/javascript/q-sticky.js", 'return' ), array( 'jquery' ), self::$version );
+        \wp_enqueue_script( 'q-sticky-js', helper::get( "theme/javascript/q-sticky.js", 'return' ), array( 'jquery' ), self::version );
         
         // pass variable values defined in parent class ##
         \wp_localize_script( 'q-sticky-js', 'q_sticky_js', array(

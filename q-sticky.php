@@ -3,7 +3,7 @@
 /**
  * Plugin Name:     Q Sticky
  * Description:     Stick posts using a simple admin UI
- * Version:         3.0.2
+ * Version:         3.0.5
  * Author:          Q Studio
  * Author URI:      http://qstudio.us
  * License:         GPL2
@@ -25,8 +25,8 @@ if ( ! class_exists( 'q_sticky' ) ) {
                        
         // Plugin Settings
         public static $debug = false;
-        public static $version = '3.0.2';
-        public static $text_domain = 'q-sticky'; // for translation ##
+        const version = '3.0.5';
+        const text_domain = 'q-sticky'; // for translation ##
         public static $post_types = [ 'post' ]; // default, filtered later ##
         
         // Function Settings ##
@@ -67,14 +67,16 @@ if ( ! class_exists( 'q_sticky' ) ) {
             // set text domain ##
             add_action( 'init', array( $this, 'load_plugin_textdomain' ), 1 );
             
-            // constants ##
-            #$this->load_constants();
-
             // load libraries ##
-            $this->load_libraries();
+            self::load_libraries();
+
+            // check debug settings ##
+            add_action( 'plugins_loaded', array( get_class(), 'debug' ), 11 );
 
         }
         
+
+
         // the form for sites have to be 1-column-layout
         public function register_activation_hook() {
 
@@ -83,9 +85,38 @@ if ( ! class_exists( 'q_sticky' ) ) {
         }
 
 
+
         public function register_deactivation_hook() {
 
             #delete_option( 'q_awards_configured' );
+
+        }
+
+
+
+        /**
+         * We want the debugging to be controlled in global and local steps
+         * If Q debug is true -- all debugging is true
+         * else follow settings in Q, or this plugin $debug variable
+         */
+        public static function debug()
+        {
+
+            // define debug ##
+            self::$debug = 
+                ( 
+                    class_exists( 'Q' )
+                    && true === \Q::$debug
+                ) ?
+                true :
+                self::$debug ;
+
+            // test ##
+            // helper::log( 'Q exists: '.json_encode( class_exists( 'Q' ) ) );
+            // helper::log( 'Q debug: '.json_encode( \Q::$debug ) );
+            // helper::log( json_encode( self::$debug ) );
+
+            return self::$debug;
 
         }
 
@@ -101,7 +132,7 @@ if ( ! class_exists( 'q_sticky' ) ) {
         {
             
             // set text-domain ##
-            $domain = self::$text_domain;
+            $domain = self::text_domain;
             
             // The "plugin_locale" filter is also used in load_plugin_textdomain()
             $locale = apply_filters('plugin_locale', get_locale(), $domain);
@@ -146,19 +177,6 @@ if ( ! class_exists( 'q_sticky' ) ) {
         }
         
 
-        /**
-        * Load Constants
-        *
-        * @since        2.0
-        */
-        public static function load_constants()
-        {
-            
-            // const ##
-            define( 'Q_STICKY_DIR', WP_PLUGIN_DIR.'/q-sticky/' );
-
-        }
-
 
         /**
         * Load Libraries
@@ -169,13 +187,13 @@ if ( ! class_exists( 'q_sticky' ) ) {
         {
 
             // methods ##
-            require_once $this->get_plugin_path( 'library/core/helper.php' );
-            require_once $this->get_plugin_path( 'library/core/core.php' );
-            require_once $this->get_plugin_path( 'library/core/ajax.php' );
+            require_once self::get_plugin_path( 'library/core/helper.php' );
+            require_once self::get_plugin_path( 'library/core/core.php' );
+            require_once self::get_plugin_path( 'library/core/ajax.php' );
 
             // backend ##
-            require_once $this->get_plugin_path( 'library/admin/admin.php' );
-            require_once $this->get_plugin_path( 'library/admin/theme.php' );
+            require_once self::get_plugin_path( 'library/admin/admin.php' );
+            require_once self::get_plugin_path( 'library/admin/theme.php' );
 
         }
 
