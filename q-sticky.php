@@ -175,6 +175,32 @@ if ( ! class_exists( 'q_sticky' ) ) {
             return plugin_dir_path( __FILE__ ).$path;
 
         }
+
+
+        /**
+         * Check for required classes to build UI features
+         * 
+         * @return      Boolean 
+         * @since       0.1.0
+         */
+        public static function has_dependencies()
+        {
+
+            // check for what's needed ##
+            if (
+                ! class_exists( 'Q' )
+            ) {
+
+                helper::log( 'Q classes are required, install required plugin.' );
+
+                return false;
+
+            }
+
+            // ok ##
+            return true;
+
+        }
         
 
 
@@ -185,6 +211,13 @@ if ( ! class_exists( 'q_sticky' ) ) {
         */
 		private function load_libraries()
         {
+
+            // check for dependencies, required for UI components - admin will still run ##
+            if ( ! self::has_dependencies() ) {
+
+                return false;
+
+            }
 
             // methods ##
             require_once self::get_plugin_path( 'library/core/helper.php' );
