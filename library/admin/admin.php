@@ -1,6 +1,7 @@
 <?php
 
 namespace q\sticky\admin;
+
 use q\sticky\core\core as core;
 use q\sticky\core\helper as helper;
 
