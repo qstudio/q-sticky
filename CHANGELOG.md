@@ -1,3 +1,7 @@
+### 3.0.6 ###
+
+* Added Github Updater tracking comment
+
 ### 3.0.5 ###
 
 * Added Q debugging logic

@@ -3,12 +3,13 @@
 /**
  * Plugin Name:     Q Sticky
  * Description:     Stick posts using a simple admin UI
- * Version:         3.0.5
+ * Version:         3.0.6
  * Author:          Q Studio
  * Author URI:      http://qstudio.us
  * License:         GPL2
  * Class:           q_sticky
  * Text Domain:     q-sticky
+ * GitHub Plugin URI: qstudio/q-sticky
  */
 
 defined( 'ABSPATH' ) OR exit;
@@ -25,7 +26,7 @@ if ( ! class_exists( 'q_sticky' ) ) {
                        
         // Plugin Settings
         public static $debug = false;
-        const version = '3.0.5';
+        const version = '3.0.6';
         const text_domain = 'q-sticky'; // for translation ##
         public static $post_types = [ 'post' ]; // default, filtered later ##
         
