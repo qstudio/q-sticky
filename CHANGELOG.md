@@ -1,3 +1,7 @@
+### 3.0.7 ###
+
+* Version bump for WP update
+
 ### 3.0.6 ###
 
 * Added Github Updater tracking comment
