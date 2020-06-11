@@ -194,7 +194,7 @@ if ( ! class_exists( 'q_sticky' ) ) {
                 ! class_exists( 'Q' )
             ) {
 
-                helper::log( 'Q classes are required, install required plugin.' );
+                helper::log( 'e:>Q classes are required, install required plugin.' );
 
                 return false;
 
